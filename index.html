@@ -7,6 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            text-align: center;
         }
         .tabs {
             display: flex;
@@ -28,52 +29,23 @@
             display: none;
         }
         .active {
-            background-color: #ccc;
             display: block;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: space-between;
+        .video-container {
+            position: relative;
+            width: 80%;
+            margin: auto;
         }
-        .gallery iframe {
-            width: calc(33.33% - 10px);
-            height: 200px;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .gallery iframe:hover {
-            transform: scale(1.05);
-        }
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
+        video {
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+            max-width: 800px;
+            border: 1px solid #ddd;
         }
-        .video-modal iframe {
-            width: 90%;
-            height: 80%;
-            max-width: 1200px;
+        .controls {
+            margin-top: 10px;
         }
-        .video-modal.active {
-            display: flex;
-        }
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
+        .volume-slider {
+            width: 200px;
         }
     </style>
 </head>
@@ -87,30 +59,43 @@
 
     <div class="tab-content" id="content-0">
         <h2>TrapEMO</h2>
-        <div class="gallery">
-            <iframe src="https://youtu.be/sIa1DBo7xXA?si=Eqzx_bt7RgMPxEnu" allowfullscreen onclick="openModal(this.src)"></iframe>
-            <iframe src="https://www.youtube.com/embed/3JZ_D3ELwOQ" allowfullscreen onclick="openModal(this.src)"></iframe>
-            <iframe src="https://www.youtube.com/embed/LXb3EKWsInQ" allowfullscreen onclick="openModal(this.src)"></iframe>
+        <div class="video-container">
+            <video id="videoPlayer" controls>
+                <source src="video1.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="controls">
+                <label for="videoSelect">Escolher vídeo:</label>
+                <select id="videoSelect" onchange="changeVideo()">
+                    <option value="video1.mp4">Vídeo 1</option>
+                    <option value="video2.mp4">Vídeo 2</option>
+                    <option value="video3.mp4">Vídeo 3</option>
+                </select>
+
+                <label for="volumeControl">Volume:</label>
+                <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.1" onchange="changeVolume()">
+            </div>
         </div>
     </div>
 
     <div class="tab-content" id="content-1">
         <h2>Meme🤪</h2>
-        <div class="gallery">
-            <iframe src="https://www.youtube.com/embed/zzfQwXEqYaI" allowfullscreen onclick="openModal(this.src)"></iframe>
+        <div class="video-container">
+            <video id="videoPlayer2" controls>
+                <source src="meme1.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
         </div>
     </div>
 
     <div class="tab-content" id="content-2">
         <h2>Categoria 3</h2>
-        <div class="gallery">
-            <iframe src="https://www.youtube.com/embed/ScMzIvxBSi4" allowfullscreen onclick="openModal(this.src)"></iframe>
+        <div class="video-container">
+            <video id="videoPlayer3" controls>
+                <source src="categoria3.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
         </div>
-    </div>
-
-    <div class="video-modal" id="video-modal">
-        <span class="close-btn" onclick="closeModal()">×</span>
-        <iframe id="modal-video" allowfullscreen></iframe>
     </div>
 
     <script>
@@ -129,22 +114,22 @@
 
         showTab(0);
 
-        function openModal(videoSrc) {
-            const modal = document.getElementById('video-modal');
-            const modalVideo = document.getElementById('modal-video');
+        function changeVideo() {
+            const videoPlayer = document.getElementById("videoPlayer");
+            const videoSelect = document.getElementById("videoSelect");
 
-            modalVideo.src = videoSrc;
-            modal.classList.add('active');
+            videoPlayer.src = videoSelect.value;
+            videoPlayer.play();
         }
 
-        function closeModal() {
-            const modal = document.getElementById('video-modal');
-            const modalVideo = document.getElementById('modal-video');
+        function changeVolume() {
+            const videoPlayer = document.getElementById("videoPlayer");
+            const volumeControl = document.getElementById("volumeControl");
 
-            modalVideo.src = "";
-            modal.classList.remove('active');
+            videoPlayer.volume = volumeControl.value;
         }
     </script>
 
 </body>
-</html>
+    </html>
+    
