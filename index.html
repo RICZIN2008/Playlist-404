@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            flex: 1;
+            text-align: center;
+        }
+        .tab:hover {
+            background-color: #ddd;
+        }
+        .tab-content {
+            display: none;
+        }
+        .active {
+            background-color: #ccc;
+            display: block;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+        }
+        .gallery img {
+            width: calc(33.33% - 10px);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .image-modal img {
+            width: 90%;
+            height: auto;
+            max-width: 1200px;
+        }
+        .image-modal.active {
+            display: flex;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .download-btn {
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs">
+        <div class="tab" onclick="showTab(0)">Anime Celular📱</div>
+        <div class="tab" onclick="showTab(1)">Anime PC💻</div>
+        <div class="tab" onclick="showTab(2)">Meme🤪</div>
+        <div class="tab" onclick="showTab(3)">Categoria 3</div>
+        <div class="tab" onclick="showTab(4)">Hentai🔞</div>
+    </div>
+
+    <div class="tab-content" id="content-0">
+        <h2>Anime Celular📱</h2>
+        <div class="gallery">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346154442092838954/Wallpapers_4k_para_Celular__Animes_e_Artwoks.jpg?ex=67c72785&is=67c5d605&hm=c13b0e73573249652fd5c39eab520c67ef0dbd8e2a63c5a44bf986125ac58677&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250523967230073/4f8cc3f4f7429e1f37c624f6f918c86d.jpg?ex=67c78101&is=67c62f81&hm=fb9671ba2cf758eb7aad079f84c8d3d54e86cb445908f8f848db2c712df68b12&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250507785867264/498103711069d511e2e427368a16b20c.jpg?ex=67c780fd&is=67c62f7d&hm=236db232cf6a3b9f21cec67a9140ef71becf06da20e7ebd8832935d2f73558be&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250477389484153/d0487b4681275edc2a21c8f40c2e342e.jpg?ex=67c780f5&is=67c62f75&hm=5d71b7dc68b5e7b9a5139d8cdf25dab707858ff551d0ed2ff0e928174cb1d403&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250460721578035/661e5cd5c761de734ec4e29f57d7311b.jpg?ex=67c780f1&is=67c62f71&hm=c3c73485dd1a552a1126e19c982e72a5e1b8ee91ecd4ef11c0dbf3115cc28f88&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250446309691492/8f26969da9fd7d935f8875b447e18796.jpg?ex=67c780ee&is=67c62f6e&hm=e11afc1357edb5b267cbde09d3f8af1eea647b3bd36374cc7153c7b322cfaf67&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250431432491049/11f3e171f0417d0f7796f3da6b3f2b72.jpg?ex=67c780ea&is=67c62f6a&hm=504f68bdd30109c33a1a983b26cd0f709fbc8fe65e272ca21baffaab9c76051b&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250411887034518/3b58ee779703fa95bc73beee8a5ce0a2.jpg?ex=67c780e6&is=67c62f66&hm=adfe73c5983f08db86fe569851bdadd08b0a7056329bb4b2d1951ee94915d465&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250305813352458/51a86d97064503964ce46c5e3e48b100.jpg?ex=67c780cd&is=67c62f4d&hm=aa0cb0f3927624ae122e1b32126a13a4012f0e51763dec2f71fab92c71f44f58&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250299714572421/9c3400e4435303684e8ba091df99f7e2.jpg?ex=67c780cb&is=67c62f4b&hm=61583900320372a79dc7fa5f0769d4552845f5c3a3df76bf317a2f1611bfd92e&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250290118262954/c2de06055f832cf198f1afed146043c4.jpg?ex=67c780c9&is=67c62f49&hm=df2d5759a4c9f2134264b4f77f7d971e45c3942b22aa0a7125e04e6a80f1a02d&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250280093880472/bd2215c0326d3a931e2c147037081190.jpg?ex=67c780c6&is=67c62f46&hm=6d45ce2ca213bb11bec7109d5d2094a3ca07c441ebebae98088efffb5a7d3fb2&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="https://cdn.discordapp.com/attachments/1346250224968138914/1346250268966129776/b67c2587f8ecccbc1a6e2736ea9867f1.jpg?ex=67c780c4&is=67c62f44&hm=4bd911976f6cfaeb41295321c2fd1c91bed5fe6ab3fa8468c6321d79b63c771f&" alt="Anime Celular" onclick="openModal(this)">
+           <img src="" alt="Anime Celular" onclick="openModal(this)">
+           <img src="" alt="Anime Celular" onclick="openModal(this)">
+        </div>
+    </div>
+
+    <div class="tab-content" id="content-1">
+        <h2>Anime PC💻</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/500x300?text=Anime+PC" alt="Anime PC" onclick="openModal(this)">
+            <img src="https://via.placeholder.com/500x300?text=Anime+PC+2" alt="Anime PC 2" onclick="openModal(this)">
+        </div>
+    </div>
+
+    <div class="tab-content" id="content-2">
+        <h2>Meme🤪</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/500x300?text=Meme" alt="Meme" onclick="openModal(this)">
+        </div>
+    </div>
+
+    <div class="tab-content" id="content-3">
+        <h2>Categoria 3</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/500x300?text=Categoria+3" alt="Categoria 3" onclick="openModal(this)">
+        </div>
+    </div>
+
+    <div class="tab-content" id="content-4">
+        <h2>Hentai🔞</h2>
+        <div class="gallery">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346169559521951806/images_8.jpg?ex=67c73599&is=67c5e419&hm=64039b3c618573c6d7f9f42ed9df2f3d23632cae54507671afafca61d67269e7&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245766661800026/images_15.jpg?ex=67c77c92&is=67c62b12&hm=ef4d1c510f3a30dc46c34e17b57a8b5656c2cf5f80ab5cca2885e84a85c436c7&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245750291693598/images_16.jpg?ex=67c77c8e&is=67c62b0e&hm=4964a564a22c5c16a65879cc26937415551f3cae8434bea4de581f93749787cd&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245732973285407/images_17.jpg?ex=67c77c8a&is=67c62b0a&hm=38bad373a28e21e0f331d44de36ac441b18ad017c68481fe72ec7d325ed36d3e&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245703420219413/images_18.jpg?ex=67c77c83&is=67c62b03&hm=a9bfa49529c32a992d4be07d6ad62fbc6e945a5d65e0a92efa05dc8b6defc4b1&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245681429610618/images_19.jpg?ex=67c77c7e&is=67c62afe&hm=25479880822e57da3928432c72bf2c79e26730a99d22387eb6794f9c5ef1e683&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245648885874770/images_20.jpg?ex=67c77c76&is=67c62af6&hm=3afffc511f4c3efc042dc1eacda7b1df6a2e25edd9a637d24f630335b814d2e1&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245617462018201/images_21.jpg?ex=67c77c6f&is=67c62aef&hm=ee0fed746152b0837c486acacfe91fbdc3485e4ca127bc2e9e66a830657d71a0&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245595039535104/images_22.jpg?ex=67c77c69&is=67c62ae9&hm=a2bac26b3e336164642c2437b845172750f26094eefe5368283a9ee60ad90c6b&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245574613008434/images_23.jpg?ex=67c77c65&is=67c62ae5&hm=3056bb216cd81d79a7f18cc340d4ff75b1eaf473c26df3afac39597c1e5eb908&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346245567298273424/images_24.jpg?ex=67c77c63&is=67c62ae3&hm=4f3f332a6dab1cde7d9d73b44b32ee830d7ca45afeb7f0f184117df3540c61f8&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580378458128485/images_19562cf0fa8.jpg?ex=67c8b434&is=67c762b4&hm=a057f5ff71fa694a535553b888d4064e800acb40b4ef1d253939c93986cb8b98&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346161984453869650/images_3.jpg?ex=67c72e8b&is=67c5dd0b&hm=f3d4fa8a6da156f349743e3106cefcf40463b953798dd1eb83ab97e0f6279465&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580390864879747/images_19562ceed9d.jpg?ex=67c8b437&is=67c762b7&hm=e94cb1084720be131560e5701c014ae15b3061fe4a338e3d8cd356da6132f97c&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580339237064725/images_19562d17ce3.jpg?ex=67c8b42b&is=67c762ab&hm=0eb950b3b002df825773cf4b042d9563ca6bdfb5a477d5d8113bff1cd858507b&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580350230462485/images_19562d0fddd.jpg?ex=67c8b42d&is=67c762ad&hm=80e0be2d174e3b9bbc53eac6199bce87edabbe9710d6a6f7d76e6a01e517fb14&" alt="Hentai" onclick="openModal(this)">
+            <img src="quehttps://cdn.discordapp.com/attachments/1346154359951462573/1346580365585678547/images_19562cfaff9.jpg?ex=67c8b431&is=67c762b1&hm=ef737da7792c3a45240fed549fe78c8f80fe78355594f646c84d0ae44358dec7&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580262737285161/images_19562d2433d.jpg?ex=67c8b418&is=67c76298&hm=81471fff02c2de371a072d500a9fc3c4103c4e2e15fae5e9b2edf3913959bcf2&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580283088048218/images_19562d1e16a.jpg?ex=67c8b41d&is=67c7629d&hm=61edfb7d10e92f41a6d01a420d9c6b8281ad1787e79d636ad7005cb6360792f2&" alt="Hentai" onclick="openModal(this)">
+            <img src="https://cdn.discordapp.com/attachments/1346154359951462573/1346580322095206411/images_19562d19a48.jpg?ex=67c8b427&is=67c762a7&hm=324309975b6b246968ca4feb6434246278fa5e8817d4f48deda2c1b8394649df&" alt="Hentai" onclick="openModal(this)">
+            <img src="k" alt="Hentai" onclick="openModal(this)">
+            <img src="k" alt="Hentai" onclick="openModal(this)">
+            <img src="k" alt="Hentai" onclick="openModal(this)">
+            <img src="k" alt="Hentai" onclick="openModal(this)">
+            <img src="k" alt="Hentai" onclick="openModal(this)">      
+        </div>
+    </div>
+
+    <div class="image-modal" id="image-modal">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <img id="modal-image" src="" alt="Imagem Ampliada">
+        <button id="download-btn" class="download-btn" onclick="downloadImage()">Baixar Imagem</button>
+    </div>
+
+    <script>
+        function showTab(index) {
+            const contents = document.querySelectorAll('.tab-content');
+            const tabs = document.querySelectorAll('.tab');
+            
+            contents.forEach((content, i) => {
+                content.classList.remove('active');
+                tabs[i].classList.remove('active');
+            });
+
+            contents[index].classList.add('active');
+            tabs[index].classList.add('active');
+        }
+
+        showTab(0);
+
+        let currentImageSrc = '';
+
+        function openModal(img) {
+            const modal = document.getElementById('image-modal');
+            const modalImage = document.getElementById('modal-image');
+
+            currentImageSrc = img.src; 
+            modalImage.src = img.src;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.remove('active');
+        }
+
+        function downloadImage() {
+            if (!currentImageSrc) {
+                alert("Erro ao encontrar a imagem.");
+                return;
+            }
+
+            fetch(currentImageSrc)
+                .then(response => response.blob())
+                .then(blob => {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = currentImageSrc.split('/').pop(); 
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    URL.revokeObjectURL(link.href);
+                })
+                .catch(error => console.error("Erro ao baixar a imagem:", error));
+        }
+    </script>
+
+</body>
+</html>
