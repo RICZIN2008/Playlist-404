@@ -45,6 +45,22 @@
         .player {
             margin-top: 30px;
         }
+
+        #playButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #playButton:hover {
+            background-color: #ff5722;
+        }
     </style>
 </head>
 <body>
@@ -75,11 +91,19 @@
     </div>
 
     <div class="player">
-        <audio id="player" controls autoplay>
+        <audio id="player">
             <source src="https://www.dropbox.com/scl/fi/3uul5gi7zsgoft4fu4rfp/ZackZin-REF_-Clipe-oficial-MP3_160K.mp3?raw=1" type="audio/mpeg">
             Seu navegador não suporta o elemento de áudio.
         </audio>
+        <button id="playButton">▶️ Tocar Música</button>
     </div>
+
+    <script>
+        document.getElementById("playButton").addEventListener("click", function() {
+            const audio = document.getElementById("player");
+            audio.play().catch(error => console.error("Erro ao iniciar áudio:", error));
+        });
+    </script>
 
 </body>
 </html>
